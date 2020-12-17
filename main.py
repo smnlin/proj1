@@ -1,4 +1,4 @@
-mydict = dict(name="Max", age=28, email="max@xyz.com")
-mydict2 = dict(name="Mary", age=27, city="Boston")
-mydict.update(mydict2)
-print(mydict)
+from collections import Counter as ctr
+a = "aaaaaadkfsssdddd"
+mycounter = ctr(a)
+print(mycounter.items())
