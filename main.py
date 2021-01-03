@@ -1,11 +1,19 @@
-import json
+from shutil import copyfile, copyfileobj
+from sys import exit
+import os
+import shutil
 
-person = {"name": "John", "age": 30, "hasChildren": True, "titles": ["engineer", "programmer"]}
-personJSON = json.dumps(person, indent=4, sort_keys=True)
-print(personJSON)
+source = "/Users/simon/pyproj/proj1/binding.mp4"
+target = "/Users/simon/pyproj/proj1/binding-copyfileobj.mp4"
 
-with open("person.json", "w") as jsFile:
-    json.dump(person, jsFile, indent=4)
-
-newPerson = json.loads(personJSON)
-print(newPerson)
+try:
+    #copyfile(source, target) #read the entire file in one go by default, copy only the data
+    #shutil.copy(source, target) #copy with permissions
+    shutil.copyfileobj(source, target)
+except IOError as err:
+    print(f"Unable to copy file {source} due to error {err}")
+    exit(1)
+except:
+    print(f"Unexpected error: {Error}")
+    exit(1)
+print("File copy done")
