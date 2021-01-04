@@ -24,4 +24,7 @@ except IOError as err:
 except:
     print(f"Unexpected error")
     exit(1)
+finally:
+    fsrc.close()
+    fdst.close()
 print("File copy done")
